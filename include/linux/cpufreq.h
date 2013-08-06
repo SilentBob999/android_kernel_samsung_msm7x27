@@ -186,8 +186,8 @@ extern int cpufreq_driver_target(struct cpufreq_policy *policy,
 				 unsigned int target_freq,
 				 unsigned int relation);
 extern int __cpufreq_driver_target(struct cpufreq_policy *policy,
-				   unsigned int target_freq,
-				   unsigned int relation);
+				 unsigned int target_freq,
+				 unsigned int relation);
 
 
 extern int __cpufreq_driver_getavg(struct cpufreq_policy *policy,
@@ -378,7 +378,7 @@ extern struct cpufreq_governor cpufreq_gov_smartassH3;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE)
 extern struct cpufreq_governor cpufreq_gov_interactive;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_interactive)
-elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SAVAGEDZEN)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SAVAGEDZEN)
 extern struct cpufreq_governor cpufreq_gov_savagedzen;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_savagedzen)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SCARY)
