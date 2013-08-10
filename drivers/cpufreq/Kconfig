@@ -161,7 +161,7 @@ config CPU_FREQ_DEFAULT_GOV_MINMAX
 	  frequency jumps does by the governor. This is aimed at maximizing
 	  both perfomance and battery life.
 
-+config CPU_FREQ_DEFAULT_GOV_LULZACTIVE
+config CPU_FREQ_DEFAULT_GOV_LULZACTIVE
 	bool "lulzactive"
 	select CPU_FREQ_GOV_LULZACTIVE
 	select CPU_FREQ_GOV_PERFORMANCE
@@ -187,7 +187,7 @@ config CPU_FREQ_DEFAULT_GOV_ONDEMANDX
   	help
     	  Use the CPUFreq governor 'ondemand' as default. This allows
     	  you to get a full dynamic frequency capable system by simply
-   	  loading your cpufreq low-level hardware driver.
+		  loading your cpufreq low-level hardware driver.
     	  Be aware that not all cpufreq drivers support the ondemand
     	  governor. If unsure have a look at the help section of the
     	  driver. Fallback governor will be the performance governor.
@@ -200,6 +200,15 @@ config CPU_FREQ_DEFAULT_GOV_LAZY
         select CPU_FREQ_GOV_PERFORMANCE
         help
           Use the CPUFreq governor 'lazy' as default.
+		  
+config CPU_FREQ_DEFAULT_GOV_GALAXYICS
+		bool "galaxyics"
+		select CPU_FREQ_GOV_GALAXYICS
+		help
+		Use the CPUFreq governor 'galaxyics' as default. This allows
+		you to get a full dynamic cpu frequency capable system by simply
+		loading your cpufreq low-level hardware driver, using the
+		'galaxyics' governor optimized for GalaxyICS devices.
 
 endchoice
 
@@ -323,7 +332,7 @@ config CPU_FREQ_GOV_MINMAX
 	  the policy. The frequency is selected according to the load.
 	  If in doubt, say N.
 
-+config CPU_FREQ_GOV_LULZACTIVE
+config CPU_FREQ_GOV_LULZACTIVE
 	tristate "'lulzactive' cpufreq governor"
 	depends on CPU_FREQ
 	help
@@ -374,13 +383,23 @@ config CPU_FREQ_MIN_TICKS
 	int "Ticks between governor polling interval."
 	default 10
 	help
-	  Minimum number of ticks between polling interval for governors.
+		Minimum number of ticks between polling interval for governors.
 
 config CPU_FREQ_SAMPLING_LATENCY_MULTIPLIER
 	int "Sampling rate multiplier for governors."
 	default 1000
 	help
-	  Sampling latency rate multiplied by the cpu switch latency.
-	  Affects governor polling.
+		Sampling latency rate multiplied by the cpu switch latency.
+		Affects governor polling.
+	  
+config CPU_FREQ_GOV_GALAXYICS
+	tristate "'galaxyics' cpufreq governor"
+	help
+		'galaxyics' - This driver adds a dynamic cpufreq policy governor
+		optimized for GalaxyICS devices.
+		To compile this driver as a module, choose M here: the
+		module will be called cpufreq_galaxyics.
+		For details, take a look at linux/Documentation/cpu-freq.
+		If in doubt, say N.
 
 endif	# CPU_FREQ

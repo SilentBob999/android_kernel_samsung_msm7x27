@@ -1,5 +1,4 @@
 if BLOCK
-
 menu "IO Schedulers"
 
 config IOSCHED_NOOP
@@ -71,9 +70,7 @@ config IOSCHED_CFQ
 	  among all processes in the system. It should provide a fair
 	  and low latency working environment, suitable for both desktop
 	  and server systems.
-
 	  This is the default I/O scheduler.
-
 	  Note: If BLK_CGROUP=m, then CFQ can be built only as module.
 
 config CFQ_GROUP_IOSCHED
@@ -156,5 +153,4 @@ config DEFAULT_IOSCHED
 	default "zen" if DEFAULT_ZEN
 
 endmenu
-
 endif
