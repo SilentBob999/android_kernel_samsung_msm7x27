@@ -4,7 +4,7 @@
  * Copyright (C) 2013 MaclawStudio
  * Copyright (C) 2010 Google, Inc.
  *
- * This software is licensed uder the terms of the GNU General Public
+ * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
  * may be copied, distributed, and modified under those terms.
  *
